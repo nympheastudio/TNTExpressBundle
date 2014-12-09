@@ -1,0 +1,6 @@
+winzou:
+    tnt_express:
+        city_zipcode_match:
+            message: City does not match zipcode. Here are the possible cities for this postcode: %cities%.
+            invalid_message: Postcode is invalid.
+            no_city_message: Postcode does not match any city.

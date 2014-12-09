@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                   https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="winzou\Bundle\TNTExpressBundle\Entity\ExpeditionRequest" table="winzou_tntexpress_expedition_request">
+        <id name="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="pickUpRequest" column="pickup_request" type="object" nullable="true"/>
+        <field name="shippingDate" column="shipping_date" type="datetime" />
+        <field name="accountNumber" column="account_number" type="string" />
+        <field name="sender" column="sender" type="object" />
+        <field name="receiver" column="receiver" type="object" />
+        <field name="serviceCode" column="service_code" type="string" />
+        <field name="quantity" column="quantity" type="integer" />
+        <field name="parcelsRequest" column="parcels_request" type="object" />
+        <field name="saturdayDelivery" column="saturday_delivery" type="boolean" nullable="true"/>
+        <field name="paybackInfo" column="payback_info" type="object" nullable="true" />
+        <field name="labelFormat" column="label_format" type="string" />
+        <field name="createdAt" column="created_at" type="datetime">
+            <gedmo:timestampable on="create"/>
+        </field>
+    </entity>
+
+</doctrine-mapping>

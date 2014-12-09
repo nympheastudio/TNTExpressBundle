@@ -1,0 +1,6 @@
+winzou:
+    tnt_express:
+        city_zipcode_match:
+            message: La ville ne correspond pas au code postal. Voici les villes possibles pour ce code postal : %cities%.
+            invalid_message: Le code postal est invalide.
+            no_city_message: Le code postal ne correspond à aucune ville.
