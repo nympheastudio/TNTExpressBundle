@@ -30,21 +30,26 @@ class Expedition extends BaseExpedition
      */
     protected $createdAt;
 
+    /**
+     * @var \Datetime
+     */
+    protected $shippingDate;
+
     public function getId()
     {
         return $this->id;
     }
 
-    public function setShippingDate(\Datetime $shippindDate)
+    public function setShippingDate(\Datetime $shippingDate)
     {
-        $this->shippindDate = $shippindDate;
+        $this->shippingDate = $shippingDate;
 
         return $this;
     }
 
-    public function getShippindDate()
+    public function getShippingDate()
     {
-        return $this->shippindDate;
+        return $this->shippingDate;
     }
 
     public function setExpeditionRequest(ExpeditionRequest $expeditionRequest)
