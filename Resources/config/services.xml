@@ -7,6 +7,7 @@
 
     <parameters>
         <parameter key="winzou_tnt.model.expedition.class">winzou\Bundle\TNTExpressBundle\Entity\Expedition</parameter>
+        <parameter key="winzou_tnt.model.events.class">winzou\Bundle\TNTExpressBundle\Entity\Events</parameter>
     </parameters>
 
     <services>
@@ -15,6 +16,7 @@
             <argument>%winzou_tnt_express.password%</argument>
             <argument type="collection">
                 <argument key="expeditionResponse">%winzou_tnt.model.expedition.class%</argument>
+                <argument key="event">%winzou_tnt.model.events.class%</argument>
             </argument>
         </service>
 
@@ -41,6 +43,15 @@
         <service id="winzou.tnt.expedition.manager" class="winzou\Bundle\TNTExpressBundle\Expedition\ExpeditionManager">
             <argument type="service" id="winzou.tnt.client"/>
             <argument type="service" id="winzou.tnt.expedition.pickup_request"/>
+        </service>
+
+        <service id="winzou.tnt.tracking.manager" class="winzou\Bundle\TNTExpressBundle\Tracking\TrackingManager">
+            <argument type="service" id="winzou.tnt.client"/>
+        </service>
+
+        <service id="winzou.tnt.tracking.dispatch_manager" class="winzou\Bundle\TNTExpressBundle\Tracking\DispatchTrackingManager">
+            <argument type="service" id="winzou.tnt.tracking.manager"/>
+            <argument type="service" id="event_dispatcher"/>
         </service>
 
         <service id="winzou.tnt.validator.city_zipcode_match" class="winzou\Bundle\TNTExpressBundle\Validator\CityZipcodeMatchValidator">

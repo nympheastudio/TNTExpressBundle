@@ -10,7 +10,6 @@
         <id name="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <field name="parcelResponses" column="parcel_responses" type="object" />
         <field name="PDFLabels" column="pdf_labels" type="blob" />
         <field name="pickUpNumber" column="pickup_number" type="string" nullable="true" />
         <field name="createdAt" column="created_at" type="datetime">
@@ -19,6 +18,7 @@
         <one-to-one field="expeditionRequest" target-entity="ExpeditionRequest">
             <join-column name="expedition_request_id" referenced-column-name="id" />
         </one-to-one>
+        <one-to-many target-entity="ParcelResponse" mapped-by="expedition" field="parcelResponses" />
     </entity>
 
 </doctrine-mapping>

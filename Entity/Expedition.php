@@ -11,7 +11,9 @@
 
 namespace winzou\Bundle\TNTExpressBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use TNTExpress\Model\Expedition as BaseExpedition;
+use TNTExpress\Model\ParcelResponse;
 
 class Expedition extends BaseExpedition
 {
@@ -26,6 +28,11 @@ class Expedition extends BaseExpedition
     protected $expeditionRequest;
 
     /**
+     * @var Events
+     */
+    protected $events;
+
+    /**
      * @var \Datetime
      */
     protected $createdAt;
@@ -34,6 +41,11 @@ class Expedition extends BaseExpedition
      * @var \Datetime
      */
     protected $shippingDate;
+
+    public function __construct()
+    {
+        $this->parcelResponses = new ArrayCollection();
+    }
 
     public function getId()
     {
@@ -64,6 +76,18 @@ class Expedition extends BaseExpedition
         return $this->expeditionRequest;
     }
 
+    public function setEvents(Events $events)
+    {
+        $this->events = $events;
+
+        return $this;
+    }
+
+    public function getEvents()
+    {
+        return $this->events;
+    }
+
     public function setCreatedAt(\Datetime $createdAt)
     {
         $this->createdAt = $createdAt;
@@ -74,5 +98,12 @@ class Expedition extends BaseExpedition
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    public function addParcelResponse(ParcelResponse $parcelResponse)
+    {
+        $parcelResponse->setExpedition($this);
+
+        return parent::addParcelResponse($parcelResponse);
     }
 }

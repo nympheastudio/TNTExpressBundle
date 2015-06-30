@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                   https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="winzou\Bundle\TNTExpressBundle\Entity\Events" table="winzou_tntexpress_events">
+        <id name="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="requestDate"                column="request_date"                  type="datetime" nullable="true" />
+        <field name="processDate"                column="process_date"                  type="datetime" nullable="true" />
+        <field name="processCenter"              column="process_center"                type="string"   nullable="true" />
+        <field name="processCenterPEX"           column="process_center_pex"            type="string"   nullable="true" />
+        <field name="arrivalDate"                column="arrival_date"                  type="datetime" nullable="true" />
+        <field name="arrivalCenter"              column="arrival_center"                type="string"   nullable="true" />
+        <field name="arrivalCenterPEX"           column="arrival_center_pex"            type="string"   nullable="true" />
+        <field name="deliveryDepartureDate"      column="delivery_departure_date"       type="datetime" nullable="true" />
+        <field name="deliveryDepartureCenter"    column="delivery_departure_center"     type="string"   nullable="true" />
+        <field name="deliveryDepartureCenterPEX" column="delivery_departure_center_pex" type="string"   nullable="true" />
+        <field name="deliveryDate"               column="delivery_date"                 type="datetime" nullable="true" />
+    </entity>
+
+</doctrine-mapping>

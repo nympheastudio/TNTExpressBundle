@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                   https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity
+        name="winzou\Bundle\TNTExpressBundle\Entity\ParcelResponse"
+        table="winzou_tntexpress_parcel_response"
+    >
+        <id name="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+
+        <field name="sequenceNumber" column="sequence_number" type="string" />
+        <field name="parcelNumber"   column="parcel_number"   type="string" />
+        <field name="trackingURL"    column="tracking_url"    type="string" />
+        <field name="stickerNumber"  column="sticker_number"  type="string" nullable="true" />
+
+        <many-to-one field="expedition" target-entity="Expedition" inversed-by="parcelResponses">
+            <join-column name="expedition_id" referenced-column-name="id" nullable="false" />
+        </many-to-one>
+
+
+        <one-to-one field="events" target-entity="Events">
+            <cascade><cascade-all /></cascade>
+        </one-to-one>
+    </entity>
+
+</doctrine-mapping>
