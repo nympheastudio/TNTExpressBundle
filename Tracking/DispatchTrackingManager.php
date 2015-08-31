@@ -64,10 +64,10 @@ class DispatchTrackingManager
     public function dispatchEvents(ParcelResponse $parcelResponse, $fromEvent = null)
     {
         $genericEvent = new GenericEvent($parcelResponse);
-        $startIndex   = array_search($fromEvent, Events::$sequence) ?: array_search($parcelResponse->getEvents()->getLastEvent(), Events::$sequence);
+        $startIndex   = array_search($fromEvent, Events::$sequence) ?: -1;
 
         foreach (Events::$sequence as $i => $event) {
-            if ($i <= $startIndex && $parcelResponse->getEvents()->isEventDone($event)) {
+            if ($i > $startIndex && $parcelResponse->getEvents()->isEventDone($event)) {
                 $this->dispatcher->dispatch(
                     sprintf('winzou.tntexpress.events.%s', $event),
                     $genericEvent
