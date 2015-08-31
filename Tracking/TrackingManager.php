@@ -40,6 +40,10 @@ class TrackingManager
             ->getEvents()
         ;
 
+        if (null === $parcelResponse->getEvents()) {
+            $parcelResponse->setEvents(new Events());
+        }
+
         $this->mergeEvents($parcelResponse->getEvents(), $events);
     }
 
