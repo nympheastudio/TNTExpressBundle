@@ -8,6 +8,7 @@
     <parameters>
         <parameter key="winzou_tnt.model.expedition.class">winzou\Bundle\TNTExpressBundle\Entity\Expedition</parameter>
         <parameter key="winzou_tnt.model.events.class">winzou\Bundle\TNTExpressBundle\Entity\Events</parameter>
+        <parameter key="winzou_tnt.model.parcelResponse.class">winzou\Bundle\TNTExpressBundle\Entity\ParcelResponse</parameter>
     </parameters>
 
     <services>
@@ -17,6 +18,7 @@
             <argument type="collection">
                 <argument key="expeditionResponse">%winzou_tnt.model.expedition.class%</argument>
                 <argument key="event">%winzou_tnt.model.events.class%</argument>
+                <argument key="parcelResponse">%winzou_tnt.model.parcelResponse.class%</argument>
             </argument>
         </service>
 
